@@ -1,6 +1,7 @@
 const contenidoTienda = document.getElementById("cont__productos");
 const irAlCarrito = document.getElementById("irAlCarrito");
 const modalContainer = document.getElementById("cont_modal");
+const contadorCarrito = document.getElementById("contadorCarrito");
 
 //Array vacío --------------------------
 
@@ -29,16 +30,34 @@ catalogo.forEach((producto) => {
 
   comprar.addEventListener("click", () => {
 
-    carritoDeCompra.push({
-      id:producto.id,
-      imagenProd:producto.imagenProd,
-      nombreProducto:producto.nombreProducto,
-      precio:producto.precio,
-    });
+    const repeat = carritoDeCompra.some ((repeatProduct) => repeatProduct.id === producto.id);
 
-    console.log(carritoDeCompra)
+    if (repeat){
+      carritoDeCompra.map((prod) => {
+        if (prod.id === producto.id) {
+          prod.cantidad++;
+        }
+      });
+    }else{
+      carritoDeCompra.push({
+        id:producto.id,
+        imagenProd:producto.imagenProd,
+        nombreProducto:producto.nombreProducto,
+        precio:producto.precio,
+        cantidad:producto.disponibilidad,
+      });
+    }
 
-  })
+    counterCarrito ();
+
+    Toastify({
+      text: `Se agregó la ${producto.nombreProducto} a tu carrito`,
+      gravity: "bottom",
+      duration: 2000,
+      style: {background: "linear-gradient(to right, #464343, #ffb732)"},
+    }).showToast();
+
+  });
   
 });
 
@@ -76,9 +95,52 @@ const carritoFeatures = () => {
     <img class = "imagenCarr" src="${producto.imagenProd}">
     <h3 class = "nombreCarr">${producto.nombreProducto}</h3>
     <p class = "precio">$${producto.precio}</p>
+    <span class="restar"> - </span>
+    <p> ${producto.cantidad}</p>
+    <span class="sumar"> + </span>
+    <p> Total: ${producto.cantidad * producto.precio}
   `;
 
     modalContainer.append(contenidoCarrito);
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    let restar = contenidoCarrito.querySelector(".restar");
+
+    restar.addEventListener("click", () => {
+      if (producto.cantidad !== 1) {
+        producto.cantidad--;
+      }
+      saveLocal();
+      carritoFeatures();
+    });
+
+    let sumar = contenidoCarrito.querySelector(".sumar");
+
+    sumar.addEventListener("click", () => {
+      producto.cantidad++;
+      saveLocal();
+      pintarCarrito();
+    });
+
+
+
+
+
+
+
+  
 
     let eliminar = document.createElement("span");
     eliminar.innerText = "✖"
@@ -87,12 +149,10 @@ const carritoFeatures = () => {
 
     eliminar.addEventListener("click", eliminarItem);
 
-
-
   });
 
 
-  const total = carritoDeCompra.reduce ((acum, elem) => acum + elem.precio, 0);
+  const total = carritoDeCompra.reduce ((acum, elem) => acum + elem.precio * elem.cantidad, 0);
 
   const totalCompra = document.createElement ("div");
   totalCompra.className = "total";
@@ -117,6 +177,16 @@ const eliminarItem = () => {
   });
 
   carritoFeatures ();
+  counterCarrito ();
 
 }
+
+const counterCarrito = () => {
+
+  contadorCarrito.style.display = "block";
+  contadorCarrito,innerText = carritoDeCompra.length;
+
+};
+
+
  
