@@ -1,106 +1,122 @@
+const contenidoTienda = document.getElementById("cont__productos");
+const irAlCarrito = document.getElementById("irAlCarrito");
+const modalContainer = document.getElementById("cont_modal");
+
+//Array vacío --------------------------
+
+let carritoDeCompra = [];
 
 
-/*función constructora*/
+//Construcción de cards -----------------
 
-function Producto (id, nombreProducto, material, precio, disponibilidad) {
-  this.id = id;
-    this.nombreProducto = nombreProducto;
-    this.material = material;
-    this.precio = precio;
-    this.disponibilidad = disponibilidad;
-    }
+catalogo.forEach((producto) => {
+  
+  let card = document.createElement("div");
+  contenidoTienda.className = "card";
+  card.innerHTML = `
+    <img class = "imagen" src="${producto.imagenProd}">
+    <h3 class = "nombre">${producto.nombreProducto}</h3>
+    <p class = "precio">$${producto.precio}</p>
+  `;
 
-let sillaFalcon = new Producto (1, "Silla Falcon", "Madera", 12000, true);
-let sillaZulia = new Producto (2, "Silla Zulia", "Madera", 11300, false);
-let sillaBarinas = new Producto (3, "Silla Barinas", "Metal", 13600, true);
-let sillaAragua = new Producto (4, "Silla Aragua", "Madera", 15400, true);
-let sillaLara = new Producto (5, "Silla Lara", "Metal", 13599, true);
-let sillaBkf = new Producto (6, "Silla BKF", "Metal", 35000, true);
-let sillaEames = new Producto (7, "Silla Eames", "Metal", 13999, false);
-let sillaSucre = new Producto (8, "Silla Sucre", "Madera", 14750, true);
-let sillaMerida = new Producto (9, "Silla Merida", "Madera", 17800, true);
-let sillaTachira = new Producto (10, "Silla Tachira", "Madera", 13450, false);
-let sillaCaracas = new Producto (11, "Silla Caracas", "Madera", 19500, false);
-let sillaNuevaEsparta = new Producto (12, "Silla Nueva Esparta", "Madera", 14900, true);
+  contenidoTienda.append(card);
 
-const catalogo = [
-    sillaFalcon, 
-    sillaZulia,
-    sillaBarinas,
-    sillaAragua,
-    sillaLara,
-    sillaBkf,
-    sillaEames,
-    sillaSucre,
-    sillaMerida,
-    sillaTachira,
-    sillaCaracas,
-    sillaNuevaEsparta
-];
+  let comprar = document.createElement ("button")
+  comprar.innerText = "Comprar";
+  comprar.className = "comprar";
 
-const carritoDeCompra = [];
+  card.append(comprar);
 
+  comprar.addEventListener("click", () => {
 
-const comprar = document.querySelectorAll(".comprar")
+    carritoDeCompra.push({
+      id:producto.id,
+      imagenProd:producto.imagenProd,
+      nombreProducto:producto.nombreProducto,
+      precio:producto.precio,
+    });
 
-comprar.addEventListener("click",hacerClick) 
+    console.log(carritoDeCompra)
 
-
-hacerClick(){
-  carritoDeCompra.push({
-    comprar.parentElement.querySelector'.nombreProducto'
   })
+  
+});
 
-  console.log(carritoDeCompra)
+
+//Funcionalidades del carrito -----------
+
+const carritoFeatures = () => {
+  modalContainer.innerHTML = "";
+  modalContainer.style.display = "flex";  
+   const modalCarrito = document.createElement ("div");
+   modalCarrito.className = "modalCarrito";
+   modalCarrito.innerHTML = `
+    <h1 class="titulo_modal">Tu Carrito<h1/>
+    `;
+
+  modalContainer.append(modalCarrito);
+
+  const botonModal = document.createElement("h1");
+  botonModal.innerText = "X";
+  botonModal.className = "botonCierre";
+
+  botonModal.addEventListener("click", () => {
+
+    modalContainer.style.display = "none";
+
+  });
+
+  modalContainer.append(botonModal);
+
+  carritoDeCompra.forEach ((producto) => {
+
+    let contenidoCarrito = document.createElement ("div");
+    contenidoCarrito.className = "contenidoModal";
+    contenidoCarrito.innerHTML = `
+    <img class = "imagenCarr" src="${producto.imagenProd}">
+    <h3 class = "nombreCarr">${producto.nombreProducto}</h3>
+    <p class = "precio">$${producto.precio}</p>
+  `;
+
+    modalContainer.append(contenidoCarrito);
+
+    let eliminar = document.createElement("span");
+    eliminar.innerText = "✖"
+    eliminar.className = "eliminador"
+    contenidoCarrito.append(eliminar);
+
+    eliminar.addEventListener("click", eliminarItem);
+
+
+
+  });
+
+
+  const total = carritoDeCompra.reduce ((acum, elem) => acum + elem.precio, 0);
+
+  const totalCompra = document.createElement ("div");
+  totalCompra.className = "total";
+  totalCompra.innerHTML = `Total: $${total}`;
+
+  modalContainer.append(totalCompra);
+
+};
+
+
+
+irAlCarrito.addEventListener ("click", carritoFeatures)
+
+//Funciones ------------------------
+
+const eliminarItem = () => {
+  
+  const IdFound = carritoDeCompra.find((element) => element.id);
+
+  carritoDeCompra = carritoDeCompra.filter ((carritoId) => {
+      return carritoId !== IdFound;
+  });
+
+  carritoFeatures ();
+
 }
-
-
-
-
-
-
-
-/*function agregarProducto() {
-    const seleccionado = document.getElementById("selectProductos").value;
-  
-    const productoAgregado = catalogo.find(Producto => Producto.nombreProducto === seleccionado);
-  
-    if (productoAgregado.disponibilidad) {
-      productosSeleccionados.push(productoAgregado);
-      alert("El producto " + productoAgregado.nombreProducto + " ha sido agregado al carrito.");
-      document.getElementById("selectProductos").value = "";
-    } else {
-      alert("Lo sentimos, el producto " + productoAgregado.nombreProducto + " no está disponible en este momento.");
-    }
-}
-
-const botonAgregar = document.getElementById("btnAgregar");
-botonAgregar.addEventListener("click", agregarProducto);
-
-
-
-function terminarCompra() {
-    
-    if (productosSeleccionados.length > 0) {
-      let total = 0;
-      let mensaje = "Usted seleccionó:\n";
-  
-      productosSeleccionados.forEach(function(producto) {
-        mensaje += "- " + producto.nombreProducto + " (" + producto.material + "): $" + producto.precio + " + IVA\n";
-        total += producto.precio;
-      });
-  
-      mensaje += "\nTotal con IVA: $" + (total * 1.21);
-  
-      alert(mensaje);
-  
-      console.log(productosSeleccionados);
-    } else {
-      alert("Debe seleccionar al menos uno de los productos disponibles.");
-    }
-  }
-
-const botonTerminar = document.getElementById("btnTerminar");
-botonTerminar.addEventListener("click", terminarCompra);*/
-
-
+ 

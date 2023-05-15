@@ -1,5 +1,5 @@
 #body__contacto, #body__faqs, #body__item, #body__nosotros, #body__productos, #body__index {
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
   background-color: rgba(252, 232, 173, 0.452);
   display: grid;
@@ -14,9 +14,14 @@
 
 .header__listaSecundaria, .header__listaSecundaria li {
   list-style: none;
-  font-size: 0.85em;
+  font-size: 1.5em;
   padding-right: 10px;
   margin-top: 15px;
+  position: fixed;
+  top: 13%;
+  left: 89%;
+  color: rgb(250, 165, 9);
+  z-index: 9;
 }
 
 #carrusel .carousel-control-next, #carrusel .carousel-control-prev {
@@ -36,13 +41,6 @@
   left: 15%;
   transform: translate(-50%, -50%);
   background-color: rgba(70, 67, 67, 0.5);
-}
-
-#whatsapp {
-  position: fixed;
-  z-index: -3;
-  margin-left: 91%;
-  margin-top: 23.5%;
 }
 
 /*----Nosotros---*/
@@ -104,61 +102,6 @@
   color: rgb(250, 165, 9);
 }
 
-/*----MEDIA Q----*/
-@media (max-width: 375px) {
-  #footer {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
-  #footer .footer__logo {
-    display: none;
-  }
-  #footer .footer__enlacesInternos {
-    grid-column: 1/2;
-    grid-row: 1/2;
-    width: 100%;
-    padding: 0%;
-    font-size: small;
-    display: flex;
-    justify-content: center;
-  }
-  #footer .footer__enlacesInternos ul {
-    padding: 0px;
-  }
-  #footer .footer__enlacesInternos ul a {
-    padding: 10px;
-  }
-  #footer .footer__enlacesredes {
-    grid-column: 1/2;
-    grid-row: 2/3;
-    display: flex;
-    justify-content: center;
-  }
-  #footer .footer__enlacesredes ul {
-    padding: 0px;
-  }
-  #footer .footer__enlacesredes ul a {
-    font-size: 180%;
-  }
-}
-* {
-  margin: 0;
-  padding: 0;
-}
-
-#body__index {
-  grid-template-rows: 20% 10% 6% 5% 10% 10% 10% 15% 10%;
-}
-#body__index #header__index {
-  grid-column: 1/-1;
-  grid-row: 1/2;
-  background-image: url(../assets/needobannerprod.jpg);
-  display: grid;
-  grid-template-columns: 10% 15% 50% 15% 10%;
-  grid-template-rows: 15% 15% 20% 20% 30%;
-  row-gap: 2%;
-}
 
 /*-----Elementos del header-------*/
 .navbar {
@@ -406,8 +349,9 @@
   }
 }
 #body__productos {
-  grid-template-rows: 200px 80% 10%;
+  grid-template-rows: 10% 95% 2%;
 }
+
 #body__productos #header__productos {
   grid-column: 1/-1;
   grid-row: 1/2;
@@ -415,309 +359,98 @@
   display: grid;
   grid-template-columns: 10% 15% 50% 15% 10%;
   grid-template-rows: 1fr 1fr;
-  padding: 1.2%;
+  padding: 2%;
   row-gap: 3%;
 }
 
 /*----CUERPO PRODUCTOS PAGE---------------*/
-#cont__productos {
+
+
+  #cont__productos {
   grid-column: 1/-1;
   grid-row: 2/3;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 0.3fr;
-  row-gap: 4%;
-  column-gap: 8%;
-  margin-bottom: 5%;
-  margin-top: 2%;
-  margin-right: 10%;
-}
-#cont__productos .listado {
-  background-color: rgb(255, 255, 255);
-  padding: 10% 0% 0% 0%;
-}
-#cont__productos .cont__productos__ {
-  transition: all 0.3s ease;
-}
-#cont__productos .cont__productos__ a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  object-fit: cover;
-}
-#cont__productos .cont__productos__ .nombreProducto, .precioProducto{
-  color: rgb(70, 67, 67);
-  font-family: "Raleway", sans-serif;
-  display: flex;
-  justify-content: flex-start;
-  font-weight: bold;
-  font-size: x-large;
-  padding: 3% 5% 1% 17%;
-}
-#cont__productos .cont__productos__ .fa-solid {
-  color: rgb(70, 67, 67);
-  background-color: rgb(250, 165, 9);
-  display: flex;
-  text-align: center;
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  width: 90%;
   padding: 5%;
-  transition: all 0.3s ease;
-}
+  column-gap: 5%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .imagen {
+    width: 90%;
+    margin: auto;
+    margin-top: 10%;
+  }
+  
+  .precio {
+    color: grey;
+    font-size: 22px;
+    margin-left: 5%;
+  }
+
+  .nombre {
+    margin-left: 5%;
+  }
+
+  .card {
+    border: 10px;
+    border-color:black;
+  }
+  
+  .card button {
+    border: none;
+    color: white;
+    padding: 10px;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    background-color:rgb(250, 165, 9);
+    cursor:pointer;
+    width: 100%;
+    font-size: 19px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .card button:hover {
+    opacity: 0.8;
+    scale: 103%;
+  }
 
 /*-----Pseudo Clases-------*/
-.cont__productos__:hover {
+#cont__productos__:hover {
   scale: 103%;
 }
 
 .fa-solid:hover {
   scale: 94%;
-  color: #fff;
+  background-color: blanchedalmond;
 }
 
-
-/*----Media Queries-----*/
-@media (max-width: 375px) {
-  #body__productos {
-    width: 100%;
-    grid-template-rows: 200px 78% 26%;
-    row-gap: 0.5%;
-  }
-  #header__productos {
-    display: grid;
-    grid-template-rows: 10% 10% 50%;
-    row-gap: 15%;
-    padding: 3%;
-  }
-  #cont__productos {
-    grid-column: 2/14;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-row: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    row-gap: 1%;
-  }
-  #cont__productos .cont__productos__ {
-    padding: 10% 0% 0% 0%;
-    margin: 0%;
-    width: 88%;
-    font-size: 0.7em;
-  }
-  #cont__productos .cont__productos__ img {
-    width: 100%;
-  }
+.cont__productos__::after {
+    content: "";
+    background: rgb(255, 183, 50);
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    right: 100%;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
 }
-#body__nosotros {
-  grid-template-rows: 200px 40% 40% 10%;
-}
-#body__nosotros #header__nosotros {
-  grid-column: 1/-1;
-  grid-row: 1/2;
-  background-image: url(../assets/needobannerprod.jpg);
-  display: grid;
-  grid-template-columns: 10% 15% 50% 15% 10%;
-  grid-template-rows: 1fr 1fr;
-  padding: 1.2%;
-}
-#body__nosotros #nosotros__resena__historica {
-  grid-column: 1/-1;
-  grid-row: 2/3;
-}
-#body__nosotros #nosotros__resena__historica, #body__nosotros #nosotros__resena__historica p {
-  background-color: rgb(255, 252, 244);
-  font-size: 1.1em;
-  padding: 2%;
-  width: 95%;
-}
-#body__nosotros #nosotros__socios {
-  grid-column: 1/-1;
-  grid-row: 3/5;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5%;
-  margin-bottom: 2%;
-}
-#body__nosotros #nosotros__socios .socios1, #body__nosotros #nosotros__socios .socios2 {
-  width: 90%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: rgba(70, 67, 67, 0.75);
-  font-family: "Raleway", sans-serif;
-}
-#body__nosotros #nosotros__socios .socios1 p, #body__nosotros #nosotros__socios .socios2 p {
-  font-family: "Raleway", sans-serif;
-  color: rgb(250, 165, 9);
-  font-size: 1.1em;
-  padding: 5%;
-}
-#body__nosotros #nosotros__socios .socios1 img, #body__nosotros #nosotros__socios .socios2 img {
-  width: 70%;
-  height: 70%;
-  border-radius: 50%;
-  padding: 3%;
-  transition: all 0.3s ease;
-}
-#body__nosotros #nosotros__laEmpresa img {
-  width: 100%;
-  object-fit: cover;
-}
-#body__nosotros #nosotros__laEmpresa p {
-  font-family: "Raleway", sans-serif;
-  color: rgb(70, 67, 67);
+  
+.cont__productos__:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
 }
 
-/*----Pseudo Clases-----*/
-.socios1 img:hover {
-  scale: 103%;
-}
-
-.socios2 img:hover {
-  scale: 103%;
-}
-
-/*----Media Queries-----*/
-@media (max-width: 375px) {
-  #body__nosotros {
-    width: 100%;
-    grid-template-columns: 100%;
-    grid-template-rows: 200px 30% 60% 10%;
-  }
-  #header__nosotros {
-    display: grid;
-    grid-template-rows: 10% 10% 50%;
-    row-gap: 15%;
-    padding: 3%;
-  }
-  #nosotros__resena__historica {
-    grid-row: 2/3;
-    margin: 0 auto;
-  }
-  #nosotros__resena__historica #nosotros__laEmpresa p {
-    font-size: 13px;
-    width: 100%;
-  }
-  #nosotros__socios {
-    grid-row: 3/5;
-    align-items: center;
-    margin-bottom: 0%;
-  }
-  #nosotros__socios .socios1 {
-    width: 100%;
-    flex-wrap: wrap;
-  }
-  #nosotros__socios .socios1, #nosotros__socios .socios1 p {
-    display: none;
-  }
-  #nosotros__socios .socios1, #nosotros__socios .socios1 img {
-    margin: 0 auto;
-    width: 30%;
-    height: 30%;
-  }
-  #nosotros__socios .socios2 {
-    width: 100%;
-    flex-wrap: wrap;
-  }
-  #nosotros__socios .socios2, #nosotros__socios .socios2 p {
-    display: none;
-  }
-  #nosotros__socios .socios2, #nosotros__socios .socios2 img {
-    margin: 0 auto;
-    width: 30%;
-    height: 30%;
-  }
-}
-
-
-#body__item {
-  grid-template-rows: 200px 30% 30% 1% 13% 10%;
-}
-#body__item #header__item {
-  grid-column: 1/-1;
-  grid-row: 1/2;
-  background-image: url(../assets/needobannerprod.jpg);
-  display: grid;
-  grid-template-columns: 10% 15% 50% 15% 10%;
-  grid-template-rows: 1fr 1fr;
-  padding: 1.2%;
-  row-gap: 3%;
-}
-#body__item #item {
-  grid-column: 4/8;
-  grid-row: 2/3;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  row-gap: 1%;
-  margin: 5% 0% 3% 0%;
-  padding: 5%;
-  background-color: rgb(255, 252, 244);
-}
-#body__item #item #carrusel__item .carousel-control-prev, #body__item #item .carousel-control-next {
-  margin: auto 0;
-  width: 10%;
-  height: 8%;
-  border-radius: 50%;
-  background-color: rgba(70, 67, 67, 0.75);
-}
-#body__item #item .detalle__item {
-  grid-column: 4/8;
-  width: 100%;
-}
-#body__item #item .detalle__item .producto__titulo {
-  color: rgb(70, 67, 67);
-  font-weight: bolder;
-  font-size: 40px;
-  font-family: "Raleway", sans-serif;
-}
-#body__item #item .detalle__item .botoncompra {
-  background: rgb(70, 67, 67);
-  color: white;
-  width: 100%;
-  padding: 15px 25px;
-  margin: 10px 0px;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  display: inline-block;
-  font-family: "Raleway", sans-serif;
-  font-size: 20px;
-  text-align: center;
-}
-#body__item #productodesc {
-  grid-column: 1/-1;
-  grid-row: 3/4;
-  width: 50%;
-  margin: 0 auto;
-  padding: 0% 5% 0% 5%;
-  font-family: "Raleway", sans-serif;
-}
-#body__item .tituloprodrelacionados {
-  grid-column: 1/-1;
-  grid-row: 4/5;
-  font-size: 2.2em;
-  font-weight: bolder;
-  font-family: "Raleway", sans-serif;
-}
-#body__item #cont__productos__relacionados {
-  grid-column: 1/-1;
-  grid-row: 5/7;
-  width: 95%;
-  display: flex;
-  flex-direction: row;
-}
-#body__item #cont__productos__relacionados .cont__productos__relacionad {
-  background-color: rgb(255, 252, 244);
-  margin: 3% 0% 3% 0%;
-  gap: 3%;
-  padding: 5%;
-  font-family: "Raleway", sans-serif;
-  font-size: medium;
-}
-#body__item #cont__productos__relacionados i {
-  background-color: rgb(250, 165, 9);
-  padding: 3%;
-  transition: all 0.3s ease;
-}
 
 /*----Pseudo Clases-----*/
 .botoncompra:hover {
@@ -748,175 +481,107 @@
   transition: all 0.35s;
 }
 
-/*----Media Queries-----*/
-@media (max-width: 375px) {
-  #body__item {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 200px 20% 25% 1% 43% 5%;
-    row-gap: 0.5%;
-  }
-  #body__item #header__item {
-    display: grid;
-    grid-template-rows: 8% 10% 50%;
-    row-gap: 20%;
-    padding: 1%;
-  }
-  #body__item #item {
-    grid-column: 1/2;
-    flex-direction: column;
-    row-gap: 1%;
-    margin: 0% 0% 1% 0%;
-    padding: 5%;
-  }
-  #body__item #item #carrusel__item .carousel-control-prev, #body__item #item .carousel-control-next {
-    width: 15%;
-    height: 10%;
-  }
-  #body__item #item .detalle__item .producto__titulo {
-    font-size: 25px;
-  }
-  #body__item #productodesc {
-    width: 100%;
-    padding: 0% 5% 0% 5%;
-    font-size: 80%;
-  }
-  #body__item .tituloprodrelacionados {
-    color: white;
-    font-size: 1.5em;
-    background-color: rgb(70, 67, 67);
-  }
-  #body__item #cont__productos__relacionados {
-    width: 100%;
-    flex-direction: column;
-  }
-  #body__item #cont__productos__relacionados .cont__productos__relacionad {
+
+/*-------------Modal------------*/
+
+
+#cont_modal{
+    width: 80%;
+    margin: 3%;
+    padding: 0%;
+    max-height: 80%;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: fixed;
+    overflow: auto;
+    z-index: 9;
+    scrollbar-color: none;
+    font-family: "Raleway", sans-serif;
   }
-  #body__item #cont__productos__relacionados .cont__productos__relacionad a {
-    display: flex;
-    justify-content: center;
-    padding: 3%;
-    margin: 3%;
-  }
-}
-#body__faqs {
-  grid-template-rows: 200px 80% 10%;
-}
-#body__faqs #header__faqs {
-  grid-column: 1/-1;
-  grid-row: 1/2;
-  background-image: url(../assets/needobannerprod.jpg);
-  display: grid;
-  grid-template-columns: 10% 15% 50% 15% 10%;
-  grid-template-rows: 1fr 1fr;
-  padding: 1.2%;
-  row-gap: 1%;
-}
-#body__faqs .faqs {
-  grid-column: 1/-1;
-  display: flex;
-  flex-direction: column;
-  font-family: "Raleway", sans-serif;
-  font-size: 1.2em;
-}
-#body__faqs .faqs .contpregunta {
-  margin: 0px;
-}
-#body__faqs .faqs .contpregunta button {
-  width: 95%;
-  background-color: rgb(250, 165, 9);
-}
-#body__faqs .faqs .contpregunta .pregunta, #body__faqs .faqs .contpregunta .pregunta2, #body__faqs .faqs .contpregunta .pregunta3, #body__faqs .faqs .contpregunta .pregunta4, #body__faqs .faqs .contpregunta .pregunta5 {
-  margin: 2% 0% 0% 0%;
-  padding: 2%;
-  border: 0px;
-}
-#body__faqs .faqs .contpregunta .collapse {
-  width: 95%;
-}
-#body__faqs .faqs .contpregunta p {
-  color: rgb(70, 67, 67);
-  font-weight: bold;
-}
-#body__faqs #body__faqs h2 {
-  margin-top: 5%;
-  margin-bottom: 5%;
-  color: rgb(70, 67, 67);
-  font-weight: bolder;
-}
 
-/*---------FAQS MEDIA QU-----------*/
-@media (max-width: 375px) {
-  #body__faqs {
+  .cont_modal::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .modalCarrito {
+    display: block;
+    color: rgb(255, 183, 50);
+    align-self: start;
+    padding: 2%;
+    background-color: black;
     width: 100%;
   }
-  #body__faqs .faqs {
-    font-size: 0.8em;
-  }
-  #body__faqs .faqs .contpregunta button {
-    width: 100%;
-  }
-  #body__faqs .faqs .contpregunta p {
-    color: rgb(70, 67, 67);
-    font-weight: bold;
-    font-size: small;
-  }
-  #body__faqs .collapse {
-    width: 100%;
-    font-size: x-small;
-  }
-  #body__faqs h2 {
-    font-weight: normal;
-    margin-top: 10%;
+
+  .botonCierre {
+    cursor: pointer;
+    color: black;
+    font-weight: bolder;
+    align-self: center;
     text-align: center;
+    background-color: white;
+    width: 5%;
+    height: 10%;
+    border-radius: 50%;
+    margin-top: 1%;
   }
-}
-#body__contacto {
-  grid-template-rows: 200px 80% 10%;
-}
-#body__contacto #header__contacto {
-  grid-column: 1/-1;
-  grid-row: 1/2;
-  background-image: url(../assets/needobannerprod.jpg);
-  display: grid;
-  grid-template-columns: 10% 15% 50% 15% 10%;
-  grid-template-rows: 1fr 1fr;
-  padding: 1.2%;
-  row-gap: 1%;
-}
-#body__contacto #formulario {
-  grid-column: 1/-1;
-  grid-row: 2/3;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-#body__contacto #formulario .icono_contacto {
-  width: 100%;
-  background: rgb(70, 67, 67);
-  overflow: hidden;
-  color: rgb(250, 165, 9);
-}
-#body__contacto #formulario .contacto label, #body__contacto #formulario .contacto input, #body__contacto #formulario .contacto textarea {
-  display: block;
-  width: 100%;
-  margin-bottom: 5px;
-}
-#body__contacto #formulario .contacto label {
-  font-weight: 700;
-}
-#body__contacto #formulario .contacto input:not([type=submit]), #body__contacto #formulario .contacto textarea {
-  border: none;
-  border-bottom: 2px solid rgb(250, 165, 9);
-  margin-bottom: 10px;
-  font-size: 20px;
-  outline: none;
-  color: rgb(70, 67, 67);
-}
 
-/*# sourceMappingURL=style.css.map */
+  .contenidoModal p{
+    color: white;
+  }
+
+  .contenidoModal h3{
+    color: rgb(255, 183, 50);
+    font-weight: bold;
+
+  }
+
+  .cont_modal  .contenidoModal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .cont_modal > div > img {
+    height: 180px;
+    width: 120px;
+  }
+
+  .total {
+    font-size: 35px;
+    padding: 20px;
+    text-align: center;
+    padding-top: 20px;
+    font-weight: bold;
+  }
+
+  .eliminador{
+    font-weight: bold;
+    font-size: large;
+  }
+  
+  .botonCierre:hover,
+  .botonCierre:focus, .eliminador:hover {
+    color:rgb(255, 183, 50); ;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+ 
+
+
+
+
+
+
+
+
+
+
+

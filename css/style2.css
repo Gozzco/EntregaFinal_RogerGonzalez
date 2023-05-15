@@ -1,0 +1,891 @@
+#body__contacto, #body__faqs, #body__item, #body__nosotros, #body__productos, #body__index {
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgba(252, 232, 173, 0.452);
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    row-gap: 1%;
+  }
+  
+  .header__navegacion .formbtn, ul .formbtn, form .formbtn, .busqueda .formbtn {
+    border: 1px solid white;
+    border-radius: 10px;
+  }
+  
+  .header__listaSecundaria, .header__listaSecundaria li {
+    list-style: none;
+    font-size: 0.85em;
+    padding-right: 10px;
+    margin-top: 15px;
+  }
+  
+  #carrusel .carousel-control-next, #carrusel .carousel-control-prev {
+    background-color: rgba(70, 67, 67, 0.75);
+    margin: auto 0;
+    width: 4%;
+    height: 15%;
+    border-radius: 50%;
+  }
+  
+  #categorias .mascotas a, #categorias .sillas a, #categorias .mantas a, #categorias .cuadros a, #categorias .decoracion a, #categorias .almohadones a {
+    color: white;
+    font-size: x-large;
+    font-weight: bolder;
+    position: relative;
+    bottom: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(70, 67, 67, 0.5);
+  }
+  
+  
+  /*----Nosotros---*/
+  #body__nosotros .socios2 h2, #body__nosotros .socios1 h2 {
+    font-size: xx-large;
+    color: rgb(235, 188, 46);
+    font-weight: bolder;
+  }
+  
+  /*----Extends Footer----*/
+  #footer {
+    grid-column: 1/-1;
+    grid-row: -1/-1;
+    background-color: rgb(70, 67, 67);
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 10%;
+  }
+  #footer .footer__logo {
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+  }
+  #footer .footer__enlacesInternos {
+    grid-column: 3/8;
+    grid-row: 2/3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 1%;
+  }
+  #footer .footer__enlacesInternos li {
+    padding: 10px;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: large;
+  }
+  #footer .footer__enlacesInternos a {
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+  #footer .footer__enlacesredes {
+    list-style: none;
+    grid-column: 8/9;
+    grid-row: 2/3;
+    padding: 2%;
+    color: white;
+  }
+  #footer .footer__enlacesredes a {
+    padding: 15px;
+    font-size: xx-large;
+    transition: all 0.3s ease;
+  }
+  #footer .footer__enlacesInternos, #footer a:hover {
+    scale: 105%;
+    color: rgb(250, 165, 9);
+  }
+  
+  /*----MEDIA Q----*/
+  @media (max-width: 375px) {
+    #footer {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+    #footer .footer__logo {
+      display: none;
+    }
+    #footer .footer__enlacesInternos {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      width: 100%;
+      padding: 0%;
+      font-size: small;
+      display: flex;
+      justify-content: center;
+    }
+    #footer .footer__enlacesInternos ul {
+      padding: 0px;
+    }
+    #footer .footer__enlacesInternos ul a {
+      padding: 10px;
+    }
+    #footer .footer__enlacesredes {
+      grid-column: 1/2;
+      grid-row: 2/3;
+      display: flex;
+      justify-content: center;
+    }
+    #footer .footer__enlacesredes ul {
+      padding: 0px;
+    }
+    #footer .footer__enlacesredes ul a {
+      font-size: 180%;
+    }
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #body__index {
+    grid-template-rows: 20% 10% 6% 5% 10% 10% 10% 15% 10%;
+  }
+  #body__index #header__index {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    background-image: url(../assets/needobannerprod.jpg);
+    display: grid;
+    grid-template-columns: 10% 15% 50% 15% 10%;
+    grid-template-rows: 15% 15% 20% 20% 30%;
+    row-gap: 2%;
+  }
+  
+  /*-----Elementos del header-------*/
+  .navbar {
+    display: none;
+    font-family: "Raleway", sans-serif;
+  }
+  .navbar .nav-item a {
+    color: rgb(250, 165, 9);
+  }
+  
+  .headercont__logo {
+    grid-column: 1/3;
+    grid-row: 1/3;
+  }
+  
+  .headercont__logo, img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+  
+  .header__navegacion {
+    grid-column: 1/5;
+    grid-row: 5/6;
+    font-family: "Raleway", sans-serif;
+  }
+  .header__navegacion, .header__navegacion ul {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+  }
+  .header__navegacion, .header__navegacion a, .header__navegacion ul, .header__navegacion ul a {
+    padding-right: 15px;
+    padding-left: 15px;
+    transition: all 0.3s ease;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0);
+  }
+  
+  .header__navegacion, ul, form, .busqueda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  .header__navegacion .btn, ul .btn, form .btn, .busqueda .btn {
+    color: white;
+    font-family: "Raleway", sans-serif;
+  }
+  .header__listaSecundaria {
+    display: flex;
+    justify-content: space-evenly;
+    grid-column: 4/6;
+    font-family: "Raleway", sans-serif;
+    color: white;
+  }
+  #presentacion {
+    grid-column: 3/4;
+    grid-row: 2/4;
+  }
+  #presentacion .presentacion__textoPrincipal, #presentacion h1 {
+    font-family: "Marcellus", serif;
+    color: rgb(235, 188, 46);
+    font-size: 1.7em;
+    font-weight: bolder;
+    padding: 5% 0% 0% 0%;
+  }
+  #presentacion .presentacion__textoSec, #presentacion h2 {
+    display: flex;
+    justify-content: center;
+    font-family: "Raleway", sans-serif;
+    color: white;
+  }
+  
+  /*--------MAIN------------*/
+  #carrusel {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+  }
+  #carrusel img {
+    height: 270px;
+    object-fit: cover;
+  }
+  #bullets {
+    grid-column: 1/11;
+    grid-row: 4/5;
+    width: 99%;
+    display: grid;
+    grid-template-columns: 10% 35% 2% 10% 35%;
+    gap: 0.8%;
+  }
+  #bullets .bullets1 {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(255, 252, 244);
+  }
+  #bullets .bullets2 {
+    grid-column: 4/6;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(255, 252, 244);
+  }
+  #bullets .envio1 i, #bullets .envio2 i {
+    border-radius: 25%;
+    font-size: 250%;
+  }
+  #bullets p {
+    color: rgb(70, 67, 67);
+  }
+  
+  #categorias {
+    grid-column: 1/11;
+    grid-row: 5/10;
+    width: 101.3%;
+    height: 100%;
+    margin-top: 2.5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  #categorias .categorias__ img {
+    transition: all 0.3s ease;
+  }
+  /*-----Contacto---------*/
+  #whatsapp i {
+    font-size: 300%;
+    color: rgb(70, 67, 67);
+  }
+  
+  /*-------Footer---------*/
+  /*-----Pseudo Clases-------*/
+  .categorias__ img:hover {
+    scale: 103%;
+  }
+  
+  .header__navegacion ul a:hover {
+    border: 1px solid white;
+  }
+  
+  /*----Media Queries-----*/
+  @media (max-width: 375px) {
+    #body__index {
+      width: 100%;
+      grid-template-rows: 15% 10% 58% 10%;
+      grid-template-columns: 50% 50%;
+      row-gap: 0.5%;
+    }
+    #body__index #header__index {
+      grid-row: 1/2;
+      grid-template-rows: 10% 10% 50%;
+      row-gap: 5%;
+      height: 98%;
+    }
+    .navbar {
+      display: contents;
+    }
+    .header__listaSecundaria {
+      display: flex;
+      justify-content: center;
+      grid-column: 1/-1;
+    }
+    .headercont__logo {
+      grid-row: 2/4;
+      grid-column: 1/4;
+      padding: 5%;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+    .header__navegacion ul {
+      display: none;
+    }
+    #presentacion {
+      grid-column: 2/5;
+      grid-row: 3/5;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    #presentacion .presentacion__textoPrincipal h1 {
+      font-size: 1.5em;
+      text-align: center;
+      height: 50%;
+    }
+    #presentacion .presentacion__textoSec h2 {
+      font-size: 1.1em;
+      display: flex;
+      align-items: flex-start;
+      text-align: center;
+    }
+    #carrusel {
+      display: none;
+    }
+    #bullets {
+      grid-column: 1/-1;
+      grid-row: 2/3;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 0%;
+      row-gap: 5%;
+      font-size: 70%;
+    }
+    #bullets .bullets1 {
+      grid-column: 1/-1;
+      justify-content: flex-start;
+      width: 100%;
+    }
+    #bullets .bullets2 {
+      grid-column: 1/-1;
+      justify-content: flex-start;
+      width: 100%;
+    }
+    #bullets .bullets__textoenvio1 {
+      padding: 0% 2% 0% 2%;
+    }
+    #bullets .envio1 {
+      padding: 0% 5% 0% 5%;
+    }
+    #categorias {
+      grid-row: 3/4;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0.12fr;
+      row-gap: 1%;
+      margin-top: 10%;
+      margin-left: 10%;
+    }
+    .categorias__ img {
+      width: 80%;
+      max-height: 100%;
+    }
+    .categorias__ img .almohadones a, .categorias__ img .decoracion a, .categorias__ img .cuadros a, .categorias__ img .mantas a, .categorias__ img .sillas a, .categorias__ img .mascotas a {
+      left: 25%;
+    }
+    #whatsapp {
+      display: none;
+    }
+  }
+  #body__productos {
+    grid-template-rows: 200px 80% 10%;
+  }
+  #body__productos #header__productos {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    background-image: url(../assets/needobannerprod.jpg);
+    display: grid;
+    grid-template-columns: 10% 15% 50% 15% 10%;
+    grid-template-rows: 1fr 1fr;
+    padding: 1.2%;
+    row-gap: 3%;
+  }
+  
+  /*----CUERPO PRODUCTOS PAGE---------------*/
+  #cont__productos {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 0.3fr;
+    row-gap: 4%;
+    column-gap: 8%;
+    margin-bottom: 5%;
+    margin-top: 2%;
+    margin-right: 10%;
+  }
+  #cont__productos .listado {
+    background-color: rgba(252, 232, 173, 0.452);
+    padding: 10% 0% 0% 0%;
+  }
+  #cont__productos .cont__productos__ {
+    transition: all 0.3s ease;
+  }
+  #cont__productos .cont__productos__ a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+  }
+  #cont__productos .cont__productos__ p {
+    color: rgb(70, 67, 67);
+    font-family: "Raleway", sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    font-weight: bold;
+    font-size: x-large;
+    padding: 3% 5% 1% 17%;
+  }
+  #cont__productos .cont__productos__ .fa-solid {
+    color: rgb(70, 67, 67);
+    background-color: rgb(250, 165, 9);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 5%;
+    transition: all 0.3s ease;
+  }
+  
+  /*-----Pseudo Clases-------*/
+  .cont__productos__:hover {
+    scale: 103%;
+  }
+  
+  .fa-solid:hover {
+    scale: 94%;
+  }
+  
+  /*----Media Queries-----*/
+  @media (max-width: 375px) {
+    #body__productos {
+      width: 100%;
+      grid-template-rows: 200px 78% 26%;
+      row-gap: 0.5%;
+    }
+    #header__productos {
+      display: grid;
+      grid-template-rows: 10% 10% 50%;
+      row-gap: 15%;
+      padding: 3%;
+    }
+    #cont__productos {
+      grid-column: 2/14;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-row: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      row-gap: 1%;
+    }
+    #cont__productos .cont__productos__ {
+      padding: 10% 0% 0% 0%;
+      margin: 0%;
+      width: 88%;
+      font-size: 0.7em;
+    }
+    #cont__productos .cont__productos__ img {
+      width: 100%;
+    }
+  }
+  #body__nosotros {
+    grid-template-rows: 200px 40% 40% 10%;
+  }
+  #body__nosotros #header__nosotros {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    background-image: url(../assets/needobannerprod.jpg);
+    display: grid;
+    grid-template-columns: 10% 15% 50% 15% 10%;
+    grid-template-rows: 1fr 1fr;
+    padding: 1.2%;
+  }
+  #body__nosotros #nosotros__resena__historica {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+  }
+  #body__nosotros #nosotros__resena__historica, #body__nosotros #nosotros__resena__historica p {
+    background-color: rgb(255, 252, 244);
+    font-size: 1.1em;
+    padding: 2%;
+    width: 100%;
+  }
+  #body__nosotros #nosotros__socios {
+    grid-column: 1/-1;
+    grid-row: 3/5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5%;
+    margin-bottom: 2%;
+  }
+  #body__nosotros #nosotros__socios .socios1, #body__nosotros #nosotros__socios .socios2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(70, 67, 67, 0.75);
+    font-family: "Raleway", sans-serif;
+  }
+  #body__nosotros #nosotros__socios .socios1 p, #body__nosotros #nosotros__socios .socios2 p {
+    font-family: "Raleway", sans-serif;
+    color: rgb(250, 165, 9);
+    font-size: 1.1em;
+    padding: 5%;
+  }
+  #body__nosotros #nosotros__socios .socios1 img, #body__nosotros #nosotros__socios .socios2 img {
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    padding: 3%;
+    transition: all 0.3s ease;
+  }
+  #body__nosotros #nosotros__laEmpresa img {
+    width: 100%;
+    object-fit: cover;
+  }
+  #body__nosotros #nosotros__laEmpresa p {
+    font-family: "Raleway", sans-serif;
+    color: rgb(70, 67, 67);
+  }
+  
+  /*----Pseudo Clases-----*/
+  .socios1 img:hover {
+    scale: 103%;
+  }
+  
+  .socios2 img:hover {
+    scale: 103%;
+  }
+  
+  /*----Media Queries-----*/
+  @media (max-width: 375px) {
+    #body__nosotros {
+      width: 100%;
+      grid-template-columns: 100%;
+      grid-template-rows: 200px 30% 60% 10%;
+    }
+    #header__nosotros {
+      display: grid;
+      grid-template-rows: 10% 10% 50%;
+      row-gap: 15%;
+      padding: 3%;
+    }
+    #nosotros__resena__historica {
+      grid-row: 2/3;
+      margin: 0 auto;
+    }
+    #nosotros__resena__historica #nosotros__laEmpresa p {
+      font-size: 13px;
+      width: 100%;
+    }
+    #nosotros__socios {
+      grid-row: 3/5;
+      align-items: center;
+      margin-bottom: 0%;
+    }
+    #nosotros__socios .socios1 {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    #nosotros__socios .socios1, #nosotros__socios .socios1 p {
+      display: none;
+    }
+    #nosotros__socios .socios1, #nosotros__socios .socios1 img {
+      margin: 0 auto;
+      width: 30%;
+      height: 30%;
+    }
+    #nosotros__socios .socios2 {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    #nosotros__socios .socios2, #nosotros__socios .socios2 p {
+      display: none;
+    }
+    #nosotros__socios .socios2, #nosotros__socios .socios2 img {
+      margin: 0 auto;
+      width: 30%;
+      height: 30%;
+    }
+  }
+  #body__item {
+    grid-template-rows: 200px 30% 30% 1% 13% 10%;
+  }
+  #body__item #header__item {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    background-image: url(../assets/needobannerprod.jpg);
+    display: grid;
+    grid-template-columns: 10% 15% 50% 15% 10%;
+    grid-template-rows: 1fr 1fr;
+    padding: 1.2%;
+    row-gap: 3%;
+  }
+  #body__item #item {
+    grid-column: 4/8;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 1%;
+    margin: 5% 0% 3% 0%;
+    padding: 5%;
+    background-color: rgb(255, 252, 244);
+  }
+  #body__item #item #carrusel__item .carousel-control-prev, #body__item #item .carousel-control-next {
+    margin: auto 0;
+    width: 10%;
+    height: 8%;
+    border-radius: 50%;
+    background-color: rgba(70, 67, 67, 0.75);
+  }
+  #body__item #item .detalle__item {
+    grid-column: 4/8;
+    width: 100%;
+  }
+  #body__item #item .detalle__item .producto__titulo {
+    color: rgb(70, 67, 67);
+    font-weight: bolder;
+    font-size: 40px;
+    font-family: "Raleway", sans-serif;
+  }
+  #body__item #item .detalle__item .botoncompra {
+    background: rgb(70, 67, 67);
+    color: white;
+    width: 100%;
+    padding: 15px 25px;
+    margin: 10px 0px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+    font-family: "Raleway", sans-serif;
+    font-size: 20px;
+    text-align: center;
+  }
+  #body__item #productodesc {
+    grid-column: 1/-1;
+    grid-row: 3/4;
+    width: 50%;
+    margin: 0 auto;
+    padding: 0% 5% 0% 5%;
+    font-family: "Raleway", sans-serif;
+  }
+  #body__item .tituloprodrelacionados {
+    grid-column: 1/-1;
+    grid-row: 4/5;
+    font-size: 2.2em;
+    font-weight: bolder;
+    font-family: "Raleway", sans-serif;
+  }
+  #body__item #cont__productos__relacionados {
+    grid-column: 1/-1;
+    grid-row: 5/7;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+  }
+  #body__item #cont__productos__relacionados .cont__productos__relacionad {
+    background-color: rgb(255, 252, 244);
+    margin: 3% 0% 3% 0%;
+    gap: 3%;
+    padding: 5%;
+    font-family: "Raleway", sans-serif;
+    font-size: medium;
+  }
+  #body__item #cont__productos__relacionados i {
+    background-color: rgb(250, 165, 9);
+    padding: 3%;
+    transition: all 0.3s ease;
+  }
+  
+  /*----Pseudo Clases-----*/
+  .botoncompra:hover {
+    color: #fff;
+  }
+  
+  .botoncompra::after {
+    content: "";
+    background: rgb(255, 183, 50);
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    right: 100%;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
+  
+  .botoncompra:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+  }
+  
+  /*----Media Queries-----*/
+  @media (max-width: 375px) {
+    #body__item {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 100%;
+      grid-template-rows: 200px 20% 25% 1% 43% 5%;
+      row-gap: 0.5%;
+    }
+    #body__item #header__item {
+      display: grid;
+      grid-template-rows: 8% 10% 50%;
+      row-gap: 20%;
+      padding: 1%;
+    }
+    #body__item #item {
+      grid-column: 1/2;
+      flex-direction: column;
+      row-gap: 1%;
+      margin: 0% 0% 1% 0%;
+      padding: 5%;
+    }
+    #body__item #item #carrusel__item .carousel-control-prev, #body__item #item .carousel-control-next {
+      width: 15%;
+      height: 10%;
+    }
+    #body__item #item .detalle__item .producto__titulo {
+      font-size: 25px;
+    }
+    #body__item #productodesc {
+      width: 100%;
+      padding: 0% 5% 0% 5%;
+      font-size: 80%;
+    }
+    #body__item .tituloprodrelacionados {
+      color: white;
+      font-size: 1.5em;
+      background-color: rgb(70, 67, 67);
+    }
+    #body__item #cont__productos__relacionados {
+      width: 100%;
+      flex-direction: column;
+    }
+    #body__item #cont__productos__relacionados .cont__productos__relacionad {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #body__item #cont__productos__relacionados .cont__productos__relacionad a {
+      display: flex;
+      justify-content: center;
+      padding: 3%;
+      margin: 3%;
+    }
+  }
+  #body__faqs {
+    grid-template-rows: 200px 80% 10%;
+  }
+  #body__faqs #header__faqs {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    background-image: url(../assets/needobannerprod.jpg);
+    display: grid;
+    grid-template-columns: 10% 15% 50% 15% 10%;
+    grid-template-rows: 1fr 1fr;
+    padding: 1.2%;
+    row-gap: 1%;
+  }
+  #body__faqs .faqs {
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.2em;
+  }
+  #body__faqs .faqs .contpregunta {
+    margin: 0px;
+  }
+  #body__faqs .faqs .contpregunta button {
+    width: 100%;
+    background-color: rgb(250, 165, 9);
+  }
+  #body__faqs .faqs .contpregunta .pregunta, #body__faqs .faqs .contpregunta .pregunta2, #body__faqs .faqs .contpregunta .pregunta3, #body__faqs .faqs .contpregunta .pregunta4, #body__faqs .faqs .contpregunta .pregunta5 {
+    margin: 2% 0% 0% 0%;
+    padding: 2%;
+    border: 0px;
+  }
+  #body__faqs .faqs .contpregunta .collapse {
+    width: 95%;
+  }
+  #body__faqs .faqs .contpregunta p {
+    color: rgb(70, 67, 67);
+    font-weight: bold;
+  }
+  #body__faqs #body__faqs h2 {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: rgb(70, 67, 67);
+    font-weight: bolder;
+  }
+  .faqs h2{
+    text-align: center;
+    margin-top: 5%;
+  }
+  
+
+
+
+  #body__contacto {
+    grid-template-rows: 200px 80% 10%;
+  }
+  #body__contacto #header__contacto {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    background-image: url(../assets/needobannerprod.jpg);
+    display: grid;
+    grid-template-columns: 10% 15% 50% 15% 10%;
+    grid-template-rows: 1fr 1fr;
+    padding: 1.2%;
+    row-gap: 1%;
+  }
+  #body__contacto #formulario {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  #body__contacto #formulario .icono_contacto {
+    width: 100%;
+    background: rgb(70, 67, 67);
+    overflow: hidden;
+    color: rgb(250, 165, 9);
+  }
+  #body__contacto #formulario .contacto label, #body__contacto #formulario .contacto input, #body__contacto #formulario .contacto textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  #body__contacto #formulario .contacto label {
+    font-weight: 700;
+  }
+  #body__contacto #formulario .contacto input:not([type=submit]), #body__contacto #formulario .contacto textarea {
+    border: none;
+    border-bottom: 2px solid rgb(250, 165, 9);
+    margin-bottom: 10px;
+    font-size: 20px;
+    outline: none;
+    color: rgb(70, 67, 67);
+  }
