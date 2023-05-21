@@ -66,13 +66,16 @@ catalogo.forEach((producto) => {
 //Funcionalidades del carrito -----------
 
 const carritoFeatures = () => {
+
   modalContainer.innerHTML = "";
+
   modalContainer.style.display = "flex";  
-   const modalCarrito = document.createElement ("div");
-   modalCarrito.className = "modalCarrito";
-   modalCarrito.innerHTML = `
-    <h1 class="titulo_modal">Tu Carrito<h1/>
-    `;
+
+  const modalCarrito = document.createElement ("div");
+  modalCarrito.className = "modalCarrito";
+  modalCarrito.innerHTML = `
+  <h1 class="titulo_modal">Tu Carrito<h1/>
+  `;
 
   modalContainer.append(modalCarrito);
 
@@ -86,52 +89,63 @@ const carritoFeatures = () => {
     
   });
 
-
   modalContainer.append(botonModal);
+  console.log(carritoDeCompra)
 
-  carritoDeCompra.forEach ((producto) => {
+  if (carritoDeCompra.length === 0) {
 
-    let contenidoCarrito = document.createElement ("div");
-    contenidoCarrito.className = "contenidoModal";
-    contenidoCarrito.innerHTML = `
-    <img class = "imagenCarr" src="${producto.imagenProd}">
-    <h3 class = "nombreCarr">${producto.nombreProducto}</h3>
-    <p class = "precio">$${producto.precio}</p>
-    <span class="restar"> - </span>
-    <p> ${producto.cantidad}</p>
-    <span class="sumar"> + </span>
-    <p> Total: ${producto.cantidad * producto.precio}
-  `;
+    const mensajeCarritoVacio = document.createElement("p");
+    mensajeCarritoVacio.innerText = "Tu carrito está vacío";
+    modalContainer.append (mensajeCarritoVacio);
+    mensajeCarritoVacio.className = "mensajeCarritoVacio";
+    contenidoCarrito.style.display = "none";
+    
+  } else {
 
-    modalContainer.append(contenidoCarrito);
+    carritoDeCompra.forEach ((producto) => {
 
-    let restar = contenidoCarrito.querySelector(".restar");
-
-    restar.addEventListener("click", () => {
-      if (producto.cantidad !== 1) {
-        producto.cantidad--;
-      }
-      saveLocal();
-      carritoFeatures();
+      let contenidoCarrito = document.createElement ("div");
+      contenidoCarrito.className = "contenidoModal";
+      contenidoCarrito.innerHTML = `
+      <img class = "imagenCarr" src="${producto.imagenProd}">
+      <h3 class = "nombreCarr">${producto.nombreProducto}</h3>
+      <p class = "precio">$${producto.precio}</p>
+      <span class="restar"> - </span>
+      <p> ${producto.cantidad}</p>
+      <span class="sumar"> + </span>
+      <p> Total: ${producto.cantidad * producto.precio}
+    `;
+  
+      modalContainer.append(contenidoCarrito);
+  
+      let restar = contenidoCarrito.querySelector(".restar");
+  
+      restar.addEventListener("click", () => {
+        if (producto.cantidad !== 1) {
+          producto.cantidad--;
+        }
+        saveLocal();
+        carritoFeatures();
+      });
+  
+      let sumar = contenidoCarrito.querySelector(".sumar");
+  
+      sumar.addEventListener("click", () => {
+        producto.cantidad++;
+        saveLocal();
+        carritoFeatures();
+      });
+  
+      let eliminar = document.createElement("span");
+      eliminar.innerText = "🗑";
+      eliminar.className = "eliminador";
+      contenidoCarrito.append(eliminar);
+  
+      eliminar.addEventListener("click", eliminarItem);
+  
     });
-
-    let sumar = contenidoCarrito.querySelector(".sumar");
-
-    sumar.addEventListener("click", () => {
-      producto.cantidad++;
-      saveLocal();
-      carritoFeatures();
-    });
-
-    let eliminar = document.createElement("span");
-    eliminar.innerText = "🗑";
-    eliminar.className = "eliminador";
-    contenidoCarrito.append(eliminar);
-
-    eliminar.addEventListener("click", eliminarItem);
-
-  });
-
+    
+  }
 
   const total = carritoDeCompra.reduce ((acum, elem) => acum + elem.precio * elem.cantidad, 0);
 
@@ -141,11 +155,17 @@ const carritoFeatures = () => {
 
   modalContainer.append(totalCompra);
 
+  const botonFinal = document.createElement ("h4")
+  botonFinal.innerText = "Finalizar tu compra";
+  botonFinal.className = "botonFinal";
+
+  modalContainer.append(botonFinal);
+
+  botonFinal.addEventListener("click", finalizarCompra);
+
 };
 
-
-
-irAlCarrito.addEventListener ("click", carritoFeatures)
+irAlCarrito.addEventListener ("click", carritoFeatures);
 
 //Funciones ------------------------
 
@@ -157,8 +177,8 @@ const eliminarItem = () => {
       return carritoId !== IdFound;
   });
 
-  carritoFeatures ();
   saveLocal ();
+  carritoFeatures ();
   counterCarrito ();
 
 }
@@ -175,6 +195,18 @@ const counterCarrito = () => {
 const saveLocal = () => {
   localStorage.setItem("carritoDeCompra", JSON.stringify(carritoDeCompra));
 };
+
+const finalizarCompra = () => {
+
+  swal("Gracias por comprar en Needo!", "Te enviaremos el detalle de tu compra al mail registrado", "success", {
+    button: "OK!",
+  });
+
+  carritoDeCompra = [];
+  saveLocal();
+  counterCarrito();
+
+}
 
 
 

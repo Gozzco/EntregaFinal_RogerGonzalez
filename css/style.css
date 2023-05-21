@@ -490,7 +490,7 @@
     width: 80%;
     margin: 3%;
     padding: 0%;
-    max-height: 80%;
+    max-height: 85%;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.8);
     display: flex;
@@ -511,7 +511,7 @@
     display: block;
     color: rgb(255, 183, 50);
     align-self: start;
-    padding: 2%;
+    padding: 1%;
     background-color: black;
     width: 100%;
   }
@@ -526,6 +526,20 @@
     width: 5%;
     height: 10%;
     margin-top: 1%;
+  }
+
+  .botonFinal {
+    cursor: pointer;
+    color: black;
+    font-weight: bolder;
+    align-self: center;
+    text-align: center;
+    background-color: rgb(255, 183, 50);
+    width: 40%;
+    height: 20%;
+    margin: 2%;
+    padding: 0.5%;
+    transition: all 0.35s;
   }
 
   .contenidoModal p{
@@ -549,8 +563,8 @@
   }
 
   .cont_modal > div > img {
-    height: 90px;
-    width: 60px;
+    height: 60px;
+    width: 40px;
   }
 
   .total {
@@ -566,6 +580,8 @@
     font-size: x-large;
     margin-bottom: 15px;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
   }
 
   .contador_carrito {
@@ -587,6 +603,19 @@
     font-family: "Raleway", sans-serif;
   }
 
+  .mensajeCarritoVacio{
+    flex-direction: row;
+    font-family: "Raleway", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 60px;
+    height: 50px;
+    width: 400px;
+    color: rgb(255, 255, 255);
+    background-color: black;
+    text-align: center;
+  }
+
 
 
 
@@ -595,6 +624,13 @@
     color:#ffb732;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .botonFinal:hover {
+    color:#ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    scale: 103%;
   }
 
   
