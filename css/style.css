@@ -24,25 +24,6 @@
   z-index: 9;
 }
 
-#carrusel .carousel-control-next, #carrusel .carousel-control-prev {
-  background-color: rgba(70, 67, 67, 0.75);
-  margin: auto 0;
-  width: 4%;
-  height: 15%;
-  border-radius: 50%;
-}
-
-#categorias .mascotas a, #categorias .sillas a, #categorias .mantas a, #categorias .cuadros a, #categorias .decoracion a, #categorias .almohadones a {
-  color: white;
-  font-size: x-large;
-  font-weight: bolder;
-  position: relative;
-  bottom: 50%;
-  left: 15%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(70, 67, 67, 0.5);
-}
-
 /*----Nosotros---*/
 #body__nosotros .socios2 h2, #body__nosotros .socios1 h2 {
   font-size: xx-large;
@@ -179,63 +160,6 @@
   color: white;
 }
 
-/*--------MAIN------------*/
-#carrusel {
-  grid-column: 1/-1;
-  grid-row: 2/3;
-}
-#carrusel img {
-  height: 270px;
-  object-fit: cover;
-}
-#bullets {
-  grid-column: 1/11;
-  grid-row: 4/5;
-  width: 99%;
-  display: grid;
-  grid-template-columns: 10% 35% 2% 10% 35%;
-  gap: 0.8%;
-}
-#bullets .bullets1 {
-  grid-column: 1/3;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: rgb(255, 252, 244);
-}
-#bullets .bullets2 {
-  grid-column: 4/6;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: rgb(255, 252, 244);
-}
-#bullets .envio1 i, #bullets .envio2 i {
-  border-radius: 25%;
-  font-size: 250%;
-}
-#bullets p {
-  color: #464343;
-}
-
-#categorias {
-  grid-column: 1/11;
-  grid-row: 5/10;
-  width: 101.3%;
-  height: 100%;
-  margin-top: 2.5%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-#categorias .categorias__ img {
-  transition: all 0.3s ease;
-}
-/*-----Contacto---------*/
-#whatsapp i {
-  font-size: 300%;
-  color: rgb(70, 67, 67);
-}
 
 /*-------Footer---------*/
 /*-----Pseudo Clases-------*/
@@ -249,12 +173,7 @@
 
 /*----Media Queries-----*/
 @media (max-width: 375px) {
-  #body__index {
-    width: 100%;
-    grid-template-rows: 15% 10% 58% 10%;
-    grid-template-columns: 50% 50%;
-    row-gap: 0.5%;
-  }
+  
   #body__index #header__index {
     grid-row: 1/2;
     grid-template-rows: 10% 10% 50%;
