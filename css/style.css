@@ -525,7 +525,6 @@
     background-color: white;
     width: 5%;
     height: 10%;
-    border-radius: 50%;
     margin-top: 1%;
   }
 
@@ -544,14 +543,14 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
-    margin-top: 30px;
+    width: 90%;
+    margin-top: 5px;
     margin-bottom: 30px;
   }
 
   .cont_modal > div > img {
-    height: 180px;
-    width: 120px;
+    height: 90px;
+    width: 60px;
   }
 
   .total {
@@ -562,28 +561,37 @@
     font-weight: bold;
   }
 
-  .eliminador{
+  .eliminador, .restar, .sumar{
     font-weight: bold;
-    font-size: large;
+    font-size: x-large;
     margin-bottom: 15px;
+    cursor: pointer;
   }
 
   .contador_carrito {
-    background-color: rgb(255, 50, 50);
+    background-color: rgb(240, 51, 51);
     color: rgb(255, 255, 255);
-    size: 20%;
-    border-radius: 100%;
-    font-size: 30px;
-    padding: 20px;
-    bottom: 20px;
-    right: 18px;
+    size: 5%;
+    border-radius: 80%;
+    font-size: 15px;
+    font-weight: bold;
+    height: 30px;
+    width: 30px;
+    padding-left: 12px;
+    padding-top: 3px;
+    padding-bottom: 15px;
+    bottom: 60px;
+    left: 25px;
     position: relative;
     display: none;
+    font-family: "Raleway", sans-serif;
   }
 
-  
+
+
+
   .botonCierre:hover,
-  .botonCierre:focus, .eliminador:hover {
+  .botonCierre:focus, .eliminador:hover, .restar:hover, .sumar:hover {
     color:#ffb732;
     text-decoration: none;
     cursor: pointer;

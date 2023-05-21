@@ -5,7 +5,7 @@ const contadorCarrito = document.getElementById("contadorCarrito");
 
 //Array vacío --------------------------
 
-let carritoDeCompra = [];
+let carritoDeCompra = JSON.parse (localStorage.getItem("carritoDeCompra")) || [];
 
 
 //Construcción de cards -----------------
@@ -49,12 +49,13 @@ catalogo.forEach((producto) => {
     }
 
     counterCarrito ();
+    saveLocal ();
 
     Toastify({
       text: `Se agregó la ${producto.nombreProducto} a tu carrito`,
       gravity: "bottom",
       duration: 2000,
-      style: {background: "linear-gradient(to right, #464343, #ffb732)"},
+      style: {background: "linear-gradient(to right, #ffb200, #ffb200)"},
     }).showToast();
 
   });
@@ -75,15 +76,16 @@ const carritoFeatures = () => {
 
   modalContainer.append(modalCarrito);
 
-  const botonModal = document.createElement("h1");
+  const botonModal = document.createElement("h4");
   botonModal.innerText = "X";
   botonModal.className = "botonCierre";
 
-  botonModal.addEventListener("click", () => {
+  document.addEventListener("click", (botonModal) => {
 
-    modalContainer.style.display = "none";
-
+    if (botonModal.target != botonModal && modalContainer.contains(botonModal.target)) {modalContainer.style.display = "none"};
+    
   });
+
 
   modalContainer.append(botonModal);
 
@@ -103,19 +105,6 @@ const carritoFeatures = () => {
 
     modalContainer.append(contenidoCarrito);
 
-
-
-
-
-
-
-
-
-
-
-
-    
-
     let restar = contenidoCarrito.querySelector(".restar");
 
     restar.addEventListener("click", () => {
@@ -131,20 +120,12 @@ const carritoFeatures = () => {
     sumar.addEventListener("click", () => {
       producto.cantidad++;
       saveLocal();
-      pintarCarrito();
+      carritoFeatures();
     });
 
-
-
-
-
-
-
-  
-
     let eliminar = document.createElement("span");
-    eliminar.innerText = "✖"
-    eliminar.className = "eliminador"
+    eliminar.innerText = "🗑";
+    eliminar.className = "eliminador";
     contenidoCarrito.append(eliminar);
 
     eliminar.addEventListener("click", eliminarItem);
@@ -177,16 +158,25 @@ const eliminarItem = () => {
   });
 
   carritoFeatures ();
+  saveLocal ();
   counterCarrito ();
 
 }
 
 const counterCarrito = () => {
-
+  
   contadorCarrito.style.display = "block";
-  contadorCarrito,innerText = carritoDeCompra.length;
+  const carritoTamanio = carritoDeCompra.length;
+  localStorage.setItem ("carritoTamanio", JSON.stringify(carritoTamanio));
+  contadorCarrito.innerText = JSON.parse(localStorage.getItem("carritoTamanio"));
 
 };
+
+const saveLocal = () => {
+  localStorage.setItem("carritoDeCompra", JSON.stringify(carritoDeCompra));
+};
+
+
 
 
  
