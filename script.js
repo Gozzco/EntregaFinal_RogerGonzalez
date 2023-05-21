@@ -11,61 +11,87 @@ let carritoDeCompra = JSON.parse (localStorage.getItem("carritoDeCompra")) || []
 
 //Construcción de cards 
 
-catalogo.forEach((producto) => {
+const getProductos = async () => {
+
+  const response = await fetch ("data.json");
+  const data = await response.json();
+
+  data.forEach((producto) => {
+
+    let card = document.createElement("div");
+    contenidoTienda.className = "card";
+    card.innerHTML = `
+      <img class = "imagen" src="${producto.imagenProd}">
+      <h3 class = "nombre">${producto.nombreProducto}</h3>
+      <p class = "precio">$${producto.precio}</p>
+    `;
   
-  let card = document.createElement("div");
-  contenidoTienda.className = "card";
-  card.innerHTML = `
-    <img class = "imagen" src="${producto.imagenProd}">
-    <h3 class = "nombre">${producto.nombreProducto}</h3>
-    <p class = "precio">$${producto.precio}</p>
-  `;
+    contenidoTienda.append(card);
 
-  contenidoTienda.append(card);
+  
+  //Construcción botón comprar
+  
+    let comprar = document.createElement ("button")
+    comprar.innerText = "Comprar";
+    comprar.className = "comprar";
+  
+    card.append(comprar);
+  
+  //Funcionalidades del botón comprar
+  
+    comprar.addEventListener("click", () => {
+  
+      const repeat = carritoDeCompra.some ((repeatProduct) => repeatProduct.id === producto.id);
+  
+      if (repeat){
+        carritoDeCompra.map((prod) => {
+          if (prod.id === producto.id) {
+            prod.cantidad++;
+          }
+        });
+      }else{
 
-//Construcción botón comprar
+        const productoInventario = data.find ((p) => p.id === producto.id);
 
-  let comprar = document.createElement ("button")
-  comprar.innerText = "Comprar";
-  comprar.className = "comprar";
+        if (productoInventario && productoInventario.disponibilidad > 0) {
 
-  card.append(comprar);
+          carritoDeCompra.push({
+            id:producto.id,
+            imagenProd:producto.imagenProd,
+            nombreProducto:producto.nombreProducto,
+            precio:producto.precio,
+            cantidad:producto.disponibilidad,
+          });
 
-//Funcionalidades del botón comprar
+          Toastify({
+            text: `Se agregó la ${producto.nombreProducto} a tu carrito`,
+            gravity: "bottom",
+            duration: 2000,
+            style: {background: "linear-gradient(to right, #ffb200, #ffb200)"},
+          }).showToast();
+          
+        } else {
 
-  comprar.addEventListener("click", () => {
-
-    const repeat = carritoDeCompra.some ((repeatProduct) => repeatProduct.id === producto.id);
-
-    if (repeat){
-      carritoDeCompra.map((prod) => {
-        if (prod.id === producto.id) {
-          prod.cantidad++;
+          Toastify({
+            text: `La ${producto.nombreProducto} no se encuentra disponible`,
+            gravity: "bottom",
+            duration: 3000,
+            style: {background: "linear-gradient(to right, #2b2929, #2b2929)"},
+          }).showToast();
+          
         }
-      });
-    }else{
-      carritoDeCompra.push({
-        id:producto.id,
-        imagenProd:producto.imagenProd,
-        nombreProducto:producto.nombreProducto,
-        precio:producto.precio,
-        cantidad:producto.disponibilidad,
-      });
-    }
-
-    counterCarrito ();
-    saveLocal ();
-
-    Toastify({
-      text: `Se agregó la ${producto.nombreProducto} a tu carrito`,
-      gravity: "bottom",
-      duration: 2000,
-      style: {background: "linear-gradient(to right, #ffb200, #ffb200)"},
-    }).showToast();
-
-  });
+      }
   
-});
+      counterCarrito ();
+      saveLocal ();
+  
+    });
+    
+  });  
+
+};
+
+getProductos();
 
 //Funcionalidades del carrito
 
@@ -95,6 +121,9 @@ const carritoFeatures = () => {
 
   modalContainer.append(botonModal);
   console.log(carritoDeCompra)
+
+//Condicionales del carrito
+
 
   if (carritoDeCompra.length === 0) {
 
@@ -176,7 +205,6 @@ const carritoFeatures = () => {
 irAlCarrito.addEventListener ("click", carritoFeatures);
 
 
-
 //Funciones 
 
 const eliminarItem = () => {
@@ -194,7 +222,7 @@ const eliminarItem = () => {
 
 const counterCarrito = () => {
   contadorCarrito.style.display = "block";
-  const carritoTamanio = carritoDeCompra.length;
+  const carritoTamanio = carritoDeCompra.reduce((total, producto) => total + producto.cantidad, 0);
   localStorage.setItem ("carritoTamanio", JSON.stringify(carritoTamanio));
   contadorCarrito.innerText = JSON.parse(localStorage.getItem("carritoTamanio"));
 };
@@ -206,14 +234,29 @@ const saveLocal = () => {
 
 
 const finalizarCompra = () => {
-  swal("Gracias por comprar en Needo!", "Te enviaremos el detalle de tu compra al mail registrado", "success", {
-    button: "OK!",
-  });
+
+  swal({
+      text: 'Indicanos tu mail para finalizar la compra".',
+      content: "input",
+      button: {
+        text: "Enviar",
+        closeModal: false,
+      },
+  })  
+
+  .then(results => {
+
+    swal("Gracias por comprar en Needo!", "Te enviaremos el detalle de tu compra al mail registrado", "success", {
+    button: "OK!", }
+
+  );
 
   carritoDeCompra = [];
   saveLocal();
   counterCarrito();
-}
+  })
+};
+
 
 
 

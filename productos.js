@@ -1,4 +1,4 @@
-//función constructora
+//función constructora que permite crear los productos que luego se convierten a formato JSON y se suben a la base de datos (archivo .JSON)
 
 function Producto (id, nombreProducto, material, precio, disponibilidad, imagenProd) {
     this.id = id;
@@ -23,7 +23,7 @@ let sillaCaracas = new Producto (11, "Silla Caracas", "Madera", 19500, 1, "/asse
 let sillaNuevaEsparta = new Producto (12, "Silla Esparta", "Madera", 14900, 1, "/assets/needoarticulosilla12.jpg");
 let sillaGuyana = new Producto (13, "Silla Guyana", "Madera", 21500, 1, "/assets/needoarticulosilla13.jpeg");
 let sillaSanCristobal = new Producto (14, "Silla Cristobal", "Madera", 19500, 1, "/assets/needoarticulosilla14.jpg");
-let sillaMonagas = new Producto (14, "Silla Monagas", "Madera", 26500, 1, "/assets/needoarticulosilla15.jpg");
+let sillaMonagas = new Producto (15, "Silla Monagas", "Madera", 26500, 1, "/assets/needoarticulosilla15.jpg");
 
 console.log(sillaFalcon.imagenProd);
 
@@ -44,3 +44,5 @@ const catalogo = [
     sillaSanCristobal,
     sillaMonagas,
 ];
+
+const catalogoJSON = JSON.stringify(catalogo);

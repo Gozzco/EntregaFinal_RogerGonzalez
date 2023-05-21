@@ -1,0 +1,118 @@
+[{"id":1,
+"nombreProducto":"Silla Falcon",
+"material":"Madera",
+"precio":12000,
+"disponibilidad":0,
+"imagenProd":"/assets/needoarticulosilla1.jpg"
+},
+
+{"id":2,
+"nombreProducto":"Silla Zulia",
+"material":"Madera",
+"precio":11300,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla2.jpg"
+},
+
+{"id":3,
+"nombreProducto":"Silla Barinas",
+"material":"Metal","precio":13600,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla3.jpg"
+},
+
+{"id":4,
+"nombreProducto":"Silla Aragua",
+"material":"Madera","precio":15400,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla4.jpg"
+},
+
+{"id":5,
+"nombreProducto":"Silla Lara",
+"material":"Metal",
+"precio":13599,
+"disponibilidad":0,
+"imagenProd":"/assets/needoarticulosilla5.jpg"
+},
+
+{"id":6,
+"nombreProducto":"Silla BKF",
+"material":"Metal",
+"precio":35000,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla6.jpg"
+},
+
+{"id":7,
+"nombreProducto":"Silla Eames",
+"material":"Metal",
+"precio":13999,
+"disponibilidad":0,
+"imagenProd":"/assets/needoarticulosilla7.jpg"
+},
+
+{"id":8,
+"nombreProducto":"Silla Sucre",
+"material":"Madera",
+"precio":14750,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla8.jpg"
+},
+
+{"id":9,
+"nombreProducto":"Silla Merida",
+"material":"Madera",
+"precio":17800,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla9.jpg"
+},
+
+{"id":10,
+"nombreProducto":"Silla Tachira",
+"material":"Madera",
+"precio":13450,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla10.jpg"
+},
+
+{"id":11,
+"nombreProducto":"Silla Caracas",
+"material":"Madera",
+"precio":19500,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla11.jpg"
+},
+
+{"id":12,
+"nombreProducto":"Silla Esparta",
+"material":"Madera",
+"precio":14900,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla12.jpg"
+},
+
+{"id":13,
+"nombreProducto":"Silla Guyana",
+"material":"Madera",
+"precio":21500,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla13.jpeg"
+},
+
+{"id":14,
+"nombreProducto":"Silla Cristobal",
+"material":"Madera",
+"precio":19500,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla14.jpg"
+},
+
+{"id":15,
+"nombreProducto":"Silla Monagas",
+"material":"Madera",
+"precio":26500,
+"disponibilidad":1,
+"imagenProd":"/assets/needoarticulosilla15.jpg"
+
+}]

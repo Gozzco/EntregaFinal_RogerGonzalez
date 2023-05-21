@@ -54,7 +54,7 @@
 #footer {
   grid-column: 1/-1;
   grid-row: -1/-1;
-  background-color: rgb(70, 67, 67);
+  background-color: #464343;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(2, 1fr);
