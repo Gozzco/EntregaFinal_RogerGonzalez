@@ -219,7 +219,7 @@ const mostrarAvisoRegistro = () => {
   avisoRegistro.className = "avisoRegistro"
 };
 
-const tiempoEspera = 5000;
+const tiempoEspera = 10000;
 
 setTimeout(mostrarAvisoRegistro, tiempoEspera);
 
