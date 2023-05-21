@@ -18,12 +18,17 @@ const getProductos = async () => {
 
   data.forEach((producto) => {
 
+    //Destructuración
+
+    const {imagenProd, nombreProducto, precio, disponibilidad} = producto;
+
     let card = document.createElement("div");
     contenidoTienda.className = "card";
     card.innerHTML = `
-      <img class = "imagen" src="${producto.imagenProd}">
-      <h3 class = "nombre">${producto.nombreProducto}</h3>
-      <p class = "precio">$${producto.precio}</p>
+      <img class = "imagen" src="${imagenProd}">
+      <h3 class = "nombre">${nombreProducto}</h3>
+      <p class = "precio">$${precio}</p>
+      <p class = "disponibilidad"> ${disponibilidad ? "Disponible" : "Agotado"} </p>
     `;
   
     contenidoTienda.append(card);
@@ -122,10 +127,12 @@ const carritoFeatures = () => {
   modalContainer.append(botonModal);
   console.log(carritoDeCompra)
 
-//Condicionales del carrito
 
+//Condicionales del carrito (usando operador ternario)
 
-  if (carritoDeCompra.length === 0) {
+  carritoDeCompra.length === 0
+
+  ? (() => {
 
     const mensajeCarritoVacio = document.createElement("p");
     mensajeCarritoVacio.innerText = "Tu carrito está vacío";
@@ -133,9 +140,9 @@ const carritoFeatures = () => {
     mensajeCarritoVacio.className = "mensajeCarritoVacio";
     contenidoCarrito.style.display = "none";
     
-  } else {
+  }) ()
 
-    carritoDeCompra.forEach ((producto) => {
+    : carritoDeCompra.forEach ((producto) => {
 
       let contenidoCarrito = document.createElement ("div");
       contenidoCarrito.className = "contenidoModal";
@@ -177,8 +184,7 @@ const carritoFeatures = () => {
       eliminar.addEventListener("click", eliminarItem);
   
     });
-    
-  }
+
 
 //Total de la compra
 
@@ -215,8 +221,9 @@ const eliminarItem = () => {
   });
 
   saveLocal ();
-  carritoFeatures ();
   counterCarrito ();
+  carritoFeatures ();
+  
 }
 
 

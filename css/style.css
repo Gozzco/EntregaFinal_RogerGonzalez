@@ -399,7 +399,7 @@
     border-color:black;
   }
   
-  .card button {
+  .card button{
     border: none;
     color: white;
     padding: 10px;
@@ -410,6 +410,13 @@
     width: 100%;
     font-size: 19px;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .disponibilidad{
+    font-family: "Raleway", sans-serif;
+    font-size: 13px;
+    margin-left: 15px;
+    padding: 0px;
   }
   
   .card button:hover {
