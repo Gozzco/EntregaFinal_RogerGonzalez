@@ -3,6 +3,7 @@ const contenidoTienda = document.getElementById("cont__productos");
 const irAlCarrito = document.getElementById("irAlCarrito");
 const modalContainer = document.getElementById("cont_modal");
 const contadorCarrito = document.getElementById("contadorCarrito");
+const avisoRegistro = document.getElementById("avisoRegistro");
 
 //Array carrito
 
@@ -209,6 +210,19 @@ const carritoFeatures = () => {
 };
 
 irAlCarrito.addEventListener ("click", carritoFeatures);
+
+//Aviso asincrónico
+
+const mostrarAvisoRegistro = () => {
+  avisoRegistro.innerText = "¡Regístrate ahora para recibir actualizaciones y ofertas especiales!";
+  avisoRegistro.style.display = "block";
+  avisoRegistro.className = "avisoRegistro"
+};
+
+const tiempoEspera = 5000;
+
+setTimeout(mostrarAvisoRegistro, tiempoEspera);
+
 
 
 //Funciones 

@@ -542,6 +542,23 @@
     text-align: center;
   }
 
+  .avisoRegistro{
+    background-color: #ffb732;
+    font-family: "Raleway", sans-serif;
+    position: fixed;
+    bottom: 150px;
+    right: 10px;
+    width: 200px;
+    padding: 10px;
+    transform: translateX(-2%);
+    transform: translateY(-100%);
+    transition: all 0.5s;
+  }
+
+  .avisoRegistro.mostrar {
+    bottom: 20px;
+  }
+
 
 
 
