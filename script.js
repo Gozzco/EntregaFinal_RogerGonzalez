@@ -1,14 +1,15 @@
+//DOM
 const contenidoTienda = document.getElementById("cont__productos");
 const irAlCarrito = document.getElementById("irAlCarrito");
 const modalContainer = document.getElementById("cont_modal");
 const contadorCarrito = document.getElementById("contadorCarrito");
 
-//Array vacío --------------------------
+//Array carrito
 
 let carritoDeCompra = JSON.parse (localStorage.getItem("carritoDeCompra")) || [];
 
 
-//Construcción de cards -----------------
+//Construcción de cards 
 
 catalogo.forEach((producto) => {
   
@@ -22,11 +23,15 @@ catalogo.forEach((producto) => {
 
   contenidoTienda.append(card);
 
+//Construcción botón comprar
+
   let comprar = document.createElement ("button")
   comprar.innerText = "Comprar";
   comprar.className = "comprar";
 
   card.append(comprar);
+
+//Funcionalidades del botón comprar
 
   comprar.addEventListener("click", () => {
 
@@ -62,8 +67,7 @@ catalogo.forEach((producto) => {
   
 });
 
-
-//Funcionalidades del carrito -----------
+//Funcionalidades del carrito
 
 const carritoFeatures = () => {
 
@@ -147,6 +151,8 @@ const carritoFeatures = () => {
     
   }
 
+//Total de la compra
+
   const total = carritoDeCompra.reduce ((acum, elem) => acum + elem.precio * elem.cantidad, 0);
 
   const totalCompra = document.createElement ("div");
@@ -154,6 +160,8 @@ const carritoFeatures = () => {
   totalCompra.innerHTML = `Total: $${total}`;
 
   modalContainer.append(totalCompra);
+
+//Botón de finalizar compra
 
   const botonFinal = document.createElement ("h4")
   botonFinal.innerText = "Finalizar tu compra";
@@ -167,10 +175,11 @@ const carritoFeatures = () => {
 
 irAlCarrito.addEventListener ("click", carritoFeatures);
 
-//Funciones ------------------------
+
+
+//Funciones 
 
 const eliminarItem = () => {
-  
   const IdFound = carritoDeCompra.find((element) => element.id);
 
   carritoDeCompra = carritoDeCompra.filter ((carritoId) => {
@@ -180,24 +189,23 @@ const eliminarItem = () => {
   saveLocal ();
   carritoFeatures ();
   counterCarrito ();
-
 }
 
+
 const counterCarrito = () => {
-  
   contadorCarrito.style.display = "block";
   const carritoTamanio = carritoDeCompra.length;
   localStorage.setItem ("carritoTamanio", JSON.stringify(carritoTamanio));
   contadorCarrito.innerText = JSON.parse(localStorage.getItem("carritoTamanio"));
-
 };
+
 
 const saveLocal = () => {
   localStorage.setItem("carritoDeCompra", JSON.stringify(carritoDeCompra));
 };
 
-const finalizarCompra = () => {
 
+const finalizarCompra = () => {
   swal("Gracias por comprar en Needo!", "Te enviaremos el detalle de tu compra al mail registrado", "success", {
     button: "OK!",
   });
@@ -205,7 +213,6 @@ const finalizarCompra = () => {
   carritoDeCompra = [];
   saveLocal();
   counterCarrito();
-
 }
 
 

@@ -1,4 +1,4 @@
-/*función constructora*/
+//función constructora
 
 function Producto (id, nombreProducto, material, precio, disponibilidad, imagenProd) {
     this.id = id;
